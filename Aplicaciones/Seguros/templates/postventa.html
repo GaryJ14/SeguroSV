@@ -16,7 +16,8 @@
     <div class="form-container">
         <div class="form-box">
             <h2>Post Venta</h2>
-            <form id="postventa-form">
+            <form id="postventa_form"action="{% url 'guardarPostventa' %}"method="post" enctype="multipart/form-data">
+                {% csrf_token %}
                 <div class="file-input-container">
                     <label class="file-label" for="poliza">Póliza Digital:</label>
                     <input type="file" id="poliza" name="poliza" class="file-input" onchange="updateFileName('file-name-poliza', this)">

@@ -17,7 +17,8 @@
     <div class="form-container">
         <div class="form-box">
             <h2>Ficha Cliente</h2>
-            <form id="cliente-form" action="./procesar_formulario.php" method="post" enctype="multipart/form-data">
+            <form id="cliente_form" action="{% url 'guardar_cliente' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
                 <div class="textbox">
                     <label for="ci">CI</label>
                     <input type="text" id="ci" name="ci" placeholder="Ingrese el CI" required>
@@ -36,25 +37,25 @@
                 </div>
                 
                 <div class="file-input-container">
-                    <label for="pago-servicio" class="file-label">Pago de Servicio Básico</label>
-                    <input type="file" id="pago-servicio" name="pago-servicio" class="file-input" accept=".pdf, .doc, .docx, .xls, .xlsx" onchange="updateFileName('pago-servicio', 'file-name-pago')">
+                    <label for="pago_servicio" class="file-label">Pago de Servicio Básico</label>
+                    <input type="file" id="pago_servicio" name="pago_servicio" class="file-input" accept=".pdf, .doc, .docx, .xls, .xlsx" onchange="updateFileName('pago-servicio', 'file-name-pago')">
                     <span id="file-name-pago"></span> <!-- Añadido para mostrar el nombre del archivo -->
                 </div>
 
                 <div class="textbox">
-                    <label for="ci-conyugue">CI Cónyuge</label>
-                    <input type="text" id="ci-conyugue" name="ci-conyuge" placeholder="Ingrese el CI del cónyuge" required>
-                    <span id="ci-conyugue-warning" class="warning"></span>
+                    <label for="ci_conyugue">CI Cónyuge</label>
+                    <input type="text" id="ci_conyugue" name="ci_conyugue" placeholder="Ingrese el CI del cónyuge" required>
+                    <span id="ci_conyugue-warning" class="warning"></span>
                 </div>
 
                 <div class="textbox">
-                    <label for="disolucion-conyugal">Disolución Conyugal</label>
-                    <input type="text" id="disolucion-conyugal" name="disolucion-conyugal" placeholder="Ingrese la disolución conyugal" required>
+                    <label for="disolucion_conyugal">Disolución Conyugal</label>
+                    <input type="text" id="disolucion_conyugal" name="disolucion_conyugal" placeholder="Ingrese la disolución conyugal" required>
                 </div>
 
                 <div class="file-input-container">
-                    <label for="formulario-vinculacion" class="file-label">Formulario de Vinculación</label>
-                    <input type="file" id="formulario-vinculacion" name="formulario-vinculacion" class="file-input" accept=".pdf, .doc, .docx, .xls, .xlsx" onchange="updateFileName('formulario-vinculacion', 'file-name-vinculacion')">
+                    <label for="formulario_vinculacion" class="file-label">Formulario de Vinculación</label>
+                    <input type="file" id="formulario_vinculacion" name="formulario_vinculacion" class="file-input" accept=".pdf, .doc, .docx, .xls, .xlsx" onchange="updateFileName('formulario-vinculacion', 'file-name-vinculacion')">
                     <span id="file-name-vinculacion"></span> <!-- Añadido para mostrar el nombre del archivo -->
                 </div>
 

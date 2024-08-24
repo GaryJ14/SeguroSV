@@ -15,10 +15,11 @@
     <div class="form-container">
         <div class="form-box">
             <h2>Ficha Empresa</h2>
-            <form id="empresa-form">
+            <form id="empresa_form" action="{% url 'guardarEmpresa' %}"method="post" enctype="multipart/form-data">
+                {% csrf_token %}
                 <div class="textbox">
-                    <label for="ci-representante">CI Representante Legal</label>
-                    <input type="text" id="ci-representante" name="ci-representante" placeholder="Ingrese el CI" required>
+                    <label for="ci_representante">CI Representante Legal</label>
+                    <input type="text" id="ci_representante" name="ci_representante" placeholder="Ingrese el CI" required>
                 </div>
                 
                 <div class="textbox">

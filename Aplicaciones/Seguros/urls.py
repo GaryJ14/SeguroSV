@@ -13,5 +13,9 @@ urlpatterns = [
     path('cliente', views.cliente,name='cliente'),
     path('seguimiento', views.seguimiento,name='seguimiento'),
     path('postventa', views.postventa,name='postventa'),
+    path('guardar_cliente', views.guardar_cliente,name='guardar_cliente'),
+    path('guardarEmpresa', views.guardarEmpresa,name='guardarEmpresa'),
+    path('guardarPostventa', views.guardarPostventa,name='guardarPostventa'),
+    path('agregarSeguimiento', views.agregarSeguimiento,name='agregarSeguimiento'),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

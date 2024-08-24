@@ -17,7 +17,8 @@
         <div class="form-box">
             <h2>Seguimiento</h2>
             <h3>Perfil Asegurado</h3>
-            <form action="procesar_seguimiento.php" method="post">
+            <form id="" action="{% url 'agregarSeguimiento' %}"method="post" enctype="multipart/form-data">
+                {% csrf_token %}
                 <!-- Fecha de nacimiento -->
                 <div class="textbox-inline">
                     <label for="fechaNacimiento">Fecha de Nacimiento:</label>
