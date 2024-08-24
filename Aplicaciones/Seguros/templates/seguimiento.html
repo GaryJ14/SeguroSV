@@ -1,0 +1,86 @@
+{% load static %}
+{%block body%}
+    
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!--Importando SweetAlert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguimiento</title>
+    <link rel="stylesheet" href="{% static 'assets/css/seguimiento.css' %}">
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-box">
+            <h2>Seguimiento</h2>
+            <h3>Perfil Asegurado</h3>
+            <form action="procesar_seguimiento.php" method="post">
+                <!-- Fecha de nacimiento -->
+                <div class="textbox-inline">
+                    <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                    <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+                    <span id="fechaNacimientoWarning" class="warning"></span>
+                </div>
+                
+                <!-- Estado civil -->
+                <div class="select-container">
+                    <label for="estadoCivil">Estado Civil:</label>
+                    <select id="estadoCivil" name="estadoCivil" required>
+                        <option value="">Seleccione una opción</option>
+                        <option value="soltero">Soltero</option>
+                        <option value="casado">Casado</option>
+                        <option value="divorciado">Divorciado</option>
+                        <option value="viudo">Viudo</option>
+                    </select>
+                </div>
+                
+                <!-- Ocupación -->
+                <div class="textbox-inline">
+                    <label for="ocupacion">Ocupación:</label>
+                    <input type="text" id="ocupacion" name="ocupacion" required>
+                </div>
+                
+                <!-- Observaciones -->
+                <div class="textbox">
+                    <label for="observaciones">Observaciones:</label>
+                    <textarea id="observaciones" name="observaciones" rows="5" required></textarea>
+                </div>
+                
+                <!-- Botones -->
+                <div class="button-group">
+                    <button type="submit" class="btn">Enviar</button>
+                    <button type="button" class="cancel-btn" id="cancelBtn">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Validación de fecha de nacimiento
+        document.addEventListener('DOMContentLoaded', function() {
+            const fechaNacimientoInput = document.getElementById('fechaNacimiento');
+            const today = new Date().toISOString().split('T')[0];
+            fechaNacimientoInput.setAttribute('max', today);
+
+            fechaNacimientoInput.addEventListener('change', function() {
+                const selectedDate = new Date(fechaNacimientoInput.value);
+                if (selectedDate > new Date()) {
+                    document.getElementById('fechaNacimientoWarning').innerText = "La fecha de nacimiento no puede ser futura.";
+                    fechaNacimientoInput.value = "";
+                } else {
+                    document.getElementById('fechaNacimientoWarning').innerText = "";
+                }
+            });
+        });
+
+        // Redireccionar al hacer clic en "Cancelar"
+        document.getElementById('cancelBtn').addEventListener('click', function() {
+            window.location.href = 'menu';
+        });
+    </script>
+</body>
+</html>
+{% endblock  %}

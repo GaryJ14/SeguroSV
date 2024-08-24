@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('http://localhost/Restaurantly/assets/img/logo.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3); /* Fondo semi-transparente para el contenedor del formulario */
+}
+
+.login-box {
+    background: rgba(255, 255, 255, 0.8); /* Fondo blanco con opacidad para el formulario */
+    padding: 20px;
+    border-radius: 15px; /* Bordes redondeados del contenedor del formulario */
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil para el contenedor */
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+}
+
+.textbox {
+    position: relative;
+    margin-bottom: 15px; /* Espacio entre campos de texto */
+}
+
+.textbox input {
+    width: calc(100% - 20px); /* Ajuste de ancho para tener un espaciado de 10px a cada lado */
+    padding: 10px;
+    border: none;
+    border-radius: 5px; /* Bordes redondeados para los campos de texto */
+    background: none;
+    color: #333;
+    font-size: 16px;
+    box-sizing: border-box; /* Asegura que el padding y el border se incluyan en el ancho total */
+}
+
+.textbox label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #333;
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.textbox input:focus ~ label,
+.textbox input:valid ~ label {
+    top: -10px;
+    left: 0;
+    color: #ff4081;
+    font-size: 12px;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.checkbox-group label {
+    margin: 0;
+}
+
+.btn {
+    width: calc(100% - 20px); /* Ajuste de ancho para los botones */
+    padding: 10px;
+    border: none;
+    background: #333;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 25px; /* Bordes redondeados para los botones */
+    margin-bottom: 10px;
+    transition: background 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra sutil para los botones */
+    box-sizing: border-box; /* Asegura que el padding y el border se incluyan en el ancho total */
+}
+
+.btn:hover {
+    background: #555;
+}

@@ -1,0 +1,49 @@
+{% load static %}
+{%block body%}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha Empresa</title>
+    <link rel="stylesheet" href="{% static 'assets/css/empresa.css' %}">
+    <!--Importando SweetAlert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-box">
+            <h2>Ficha Empresa</h2>
+            <form id="empresa-form">
+                <div class="textbox">
+                    <label for="ci-representante">CI Representante Legal</label>
+                    <input type="text" id="ci-representante" name="ci-representante" placeholder="Ingrese el CI" required>
+                </div>
+                
+                <div class="textbox">
+                    <label for="ruc">RUC</label>
+                    <input type="text" id="ruc" name="ruc" placeholder="Ingrese el RUC" required>
+                </div>
+                
+                <div class="textbox">
+                    <label for="constitucion">Constitución de Empresa</label>
+                    <input type="text" id="constitucion" name="constitucion" placeholder="Ingrese la Constitución" required>
+                </div>
+
+                <div class="file-input-container">
+                    <label for="nomina" class="file-label">Nómina de Socios</label>
+                    <input type="file" id="nomina" name="nomina" class="file-input" accept=".pdf, .doc, .docx, .xls, .xlsx" onchange="updateFileName()">
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" class="btn">Enviar</button>
+                    <button type="button" class="btn cancel-btn" onclick="window.location.href='menu'">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>
+{% endblock  %}

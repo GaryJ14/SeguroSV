@@ -1,0 +1,68 @@
+{% load static %}
+{%block body%}
+    
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!--Importando SweetAlert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú de Formularios</title>
+    <link rel="stylesheet" href="{% static 'assets/css/menu.css' %}">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Contenedor lateral para el menú -->
+        <nav class="sidebar">
+            <div class="logo-container">
+                <img src="http://localhost/Restaurantly/assets/img/logo.png" alt="Logo" class="logo">
+                <h2 class="menu-title">Menú</h2>
+            </div>
+            <div class="divider"></div> <!-- Línea separadora -->
+            <ul>
+                <li><a href="{% url 'empresa' %}" onclick="loadContent('empresa.html')">Empresa</a></li>
+                <li><a href="{% url 'cliente' %}" onclick="loadContent('cliente.html')">Cliente</a></li>
+                <li><a href="{% url 'seguimiento' %}" onclick="loadContent('seguimiento.html')">Seguimiento</a></li>
+                <li><a href="{% url 'postventa' %}" onclick="loadContent('postventa.html')">Postventa</a></li>
+            </ul>
+        </nav>
+
+        <!-- Contenedor principal para mostrar el contenido -->
+        <div class="content-container">
+            <div id="backgroundImage" class="background-image"></div>
+            <iframe id="contentFrame" src="" frameborder="0"></iframe>
+            <div id="welcomeMessage" class="welcome-message">
+                <h1>Bienvenido al sistema de seguros</h1>
+                <p>Selecciona una opción del menú a la izquierda para comenzar.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function loadContent(page) {
+            document.getElementById('welcomeMessage').style.display = 'none';
+            document.getElementById('backgroundImage').style.display = 'none';
+            document.getElementById('contentFrame').src = page;
+        }
+    </script>
+     <!--Si existe mensajes te ejecuta eso caso contrario no -->
+   {% if messages %}
+   {% for mensaje in messages %}
+       {% if mensaje.tags == 'success' %}
+           <script>
+               Swal.fire({
+                   title: "CONFIRMACION",
+                   //Para reutilizar el mensaje que vayamos a poner
+                   text: "{{mensaje}}",
+                   icon: "success"
+               });
+           </script>
+
+       {% endif %}
+   {% endfor %}
+{% endif %}
+</body>
+</html>
+{% endblock  %}

@@ -1,0 +1,55 @@
+{% load static %}
+{%block body%}
+    
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!--Importando SweetAlert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Venta</title>
+    <link rel="stylesheet" href="{% static 'assets/css/postventa.css' %}">
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-box">
+            <h2>Post Venta</h2>
+            <form id="postventa-form">
+                <div class="file-input-container">
+                    <label class="file-label" for="poliza">Póliza Digital:</label>
+                    <input type="file" id="poliza" name="poliza" class="file-input" onchange="updateFileName('file-name-poliza', this)">
+                    <span id="file-name-poliza"></span>
+                </div>
+
+                <div class="select-container">
+                    <label for="plan-pago">Plan de Pago:</label>
+                    <select id="plan-pago" name="plan-pago">
+                        <option value="">Selecciona un plan</option>
+                        <option value="plan1">Plan Básico</option>
+                        <option value="plan2">Plan Estándar</option>
+                        <option value="plan3">Plan Premium</option>
+                    </select>
+                </div>
+
+                <div class="textbox">
+                    <label for="novedades">Novedades:</label>
+                    <textarea id="novedades" name="novedades" rows="5"></textarea>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" class="btn">Enviar</button>
+                    <button type="button" class="cancel-btn" onclick="window.location.href='menu'">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        function updateFileName(id, input) {
+            document.getElementById(id).textContent = input.files[0] ? input.files[0].name : '';
+        }
+    </script>
+</body>
+</html>
+{% endblock  %}

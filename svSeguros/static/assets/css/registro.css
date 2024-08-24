@@ -1,0 +1,131 @@
+/* Asegúrate de que este CSS esté en tu archivo registro.css */
+
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    background: url('http://localhost/Restaurantly/assets/img/logo.png') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0; 
+    padding: 0; 
+}
+
+/* Estilo para el contenedor del formulario */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Asegura que el contenedor ocupe al menos el alto de la ventana */
+    padding: 20px; /* Espacio adicional alrededor del contenedor */
+    box-sizing: border-box; /* Incluye padding y border en el ancho y alto total */
+    background: rgba(0, 0, 0, 0.3); /* Fondo semi-transparente para el contenedor del formulario */
+}
+
+/* Estilo para la caja de login con espacio superior e inferior */
+.login-box {
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con opacidad */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 350px; /* Ampliado para ajustarse a un formulario más amplio */
+    position: relative; /* Asegura que el label esté posicionado correctamente */
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+/* Alineación de texto y encabezado */
+.login-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilo de los campos de texto y etiquetas */
+.textbox {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+/* Ajuste del tamaño y alineación de las cajas de texto */
+.textbox input[type="text"],
+.textbox input[type="email"],
+.textbox input[type="date"],
+.textbox input[type="password"],
+.textbox select {
+    width: calc(100% - 20px); /* Reduce el ancho total de los campos */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background: white;
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+    margin-left: 10px; /* Espacio adicional a la izquierda */
+    margin-right: 10px; /* Espacio adicional a la derecha */
+}
+
+/* Label para los campos de texto y selección */
+.textbox label {
+    position: absolute;
+    top: 10px;
+    left: 20px; /* Ajusta el espacio desde el borde izquierdo del campo de texto */
+    font-size: 14px;
+    color: #666;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+/* Ajuste del label cuando el campo está enfocado o tiene un valor */
+.textbox input:focus + label,
+.textbox input:not(:placeholder-shown) + label,
+.textbox select:focus + label,
+.textbox select:not(:empty) + label {
+    top: -18px;
+    left: 15px; /* Ajusta el espacio cuando el campo tiene foco o un valor */
+    font-size: 12px;
+    color: #333;
+}
+
+/* Estilo para el campo de selección */
+.textbox select {
+    padding-right: 30px; /* Espacio para el ícono de la lista desplegable */
+}
+
+/* Estilo para los mensajes de advertencia */
+.warning {
+    color: red;
+    font-size: 12px;
+    display: block;
+    margin-top: 5px;
+}
+
+/* Estilo para la visibilidad de la contraseña */
+.password-field {
+    position: relative;
+}
+
+.password-field i {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #666;
+}
+
+/* Estilo para el botón de registro */
+.btn {
+    width: calc(100% - 20px); /* Ajusta el ancho para el botón teniendo en cuenta el padding */
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-sizing: border-box; /* Asegura que el padding y el border se incluyan en el ancho total */
+    margin-left: 10px; /* Espacio adicional a la izquierda */
+    margin-right: 10px; /* Espacio adicional a la derecha */
+}
+
+.btn:hover {
+    background-color: #555;
+}

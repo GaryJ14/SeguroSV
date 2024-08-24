@@ -1,0 +1,165 @@
+/* seguimiento.css */
+
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    background: url('http://localhost/Restaurantly/assets/img/logo.png') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo para el contenedor del formulario */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Estilo para la caja de formulario */
+.form-box {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+}
+
+/* Estilo del título */
+.form-box h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Estilo del subtítulo */
+.form-box h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #040008;
+    font-size: 20px;
+}
+
+/* Estilo de los campos de texto y etiquetas en línea */
+.textbox-inline {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.textbox-inline label {
+    font-size: 14px;
+    color: #666;
+    font-weight: bold;
+    margin-right: 20px;
+    min-width: 180px; /* Ajusta el ancho de la etiqueta */
+}
+
+.textbox-inline input[type="text"],
+.textbox-inline input[type="date"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background: white;
+    width: 100%;
+    max-width: calc(100% - 200px); /* Ajusta el ancho del campo */
+    box-sizing: border-box;
+}
+
+/* Estilo para los campos de selección */
+.select-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.select-container label {
+    font-size: 14px;
+    color: #666;
+    font-weight: bold;
+    margin-right: 20px;
+    min-width: 180px; /* Ajusta el ancho de la etiqueta */
+}
+
+.select-container select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background: white;
+    box-sizing: border-box;
+    width: calc(80% - 200px); /* Ajusta el ancho del campo de selección */
+}
+
+/* Estilo para el campo de observaciones */
+.textbox {
+    position: relative;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.textbox label {
+    font-size: 14px;
+    color: #666;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.textbox textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background: white;
+    box-sizing: border-box;
+    width: 100%;
+    resize: vertical;
+}
+
+/* Estilo para los mensajes de advertencia */
+.warning {
+    color: red;
+    font-size: 12px;
+    display: block;
+    margin-top: 5px;
+}
+
+/* Estilo para los botones */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 40px;
+}
+
+.btn, .cancel-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn {
+    background-color: #6a1b9a;
+}
+
+.btn:hover {
+    background-color: #4a148c;
+}
+
+.cancel-btn {
+    background-color: #6a1b9a;
+}
+
+.cancel-btn:hover {
+    background-color: #4a148c;
+}
