@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404
 from .models import Registro,Cliente,Empresa, PostVenta, Seguimiento
 from django.contrib import messages
 from django.conf import settings
+from django.core.mail import send_mail
 # Create your views here.
 
 def index(request):    
@@ -173,3 +174,36 @@ def agregarSeguimiento(request):
         return redirect('menu')  # Cambia 'success_page' por el nombre de la vista que desees
 
     return render(request, 'seguimiento.html')
+
+def enviar_correo(request):
+    if request.method == 'POST':
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        subject = request.POST.get("subject")
+        plan_pago = request.POST.get("plan_pago")
+        message = request.POST.get("message")
+        email1 = "carlaalomoto27@gmail.com"
+
+        # Construir y enviar el correo electrónico
+        email_subject = f'Nuevo mensaje: {subject}'
+        email_message = (
+            f'Se ha recibido un nuevo mensaje de {name}.\n\n'
+            f'Detalles:\n'
+            f'Email: {email}\n'
+            f'Tipo de plan: {plan_pago}\n'
+            f'Mensaje:\n{message}\n'
+        )
+        send_mail(
+            email_subject,
+            email_message,
+            settings.EMAIL_HOST_USER,  # Dirección de correo del remitente
+            [email1],  # Dirección de correo del destinatario
+            fail_silently=False,
+        )
+        messages.success(request,"Correo enviado exitosamente, pronto un encargado se pondra en contacto contigo.")
+
+        return redirect("/")
+
+    return redirect("/")
+
+

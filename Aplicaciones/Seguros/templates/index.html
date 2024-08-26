@@ -900,33 +900,37 @@
           </div>
 
           <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+            <form action="{% url 'enviar_correo' %}" method="post"  class="form">
+            {% csrf_token %}
               <div class="row gy-4">
 
                 <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                  <input type="text" name="name" class="form-control" placeholder="Nombre" required="">
                 </div>
 
                 <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                  <input type="email" class="form-control" name="email" placeholder="Email" required="">
                 </div>
 
                 <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                  <input type="text" class="form-control" name="subject" placeholder="Asunto" required="">
+                </div>
+                <div class="col-md-12 mb-3">
+                  <select id="plan_pago" name="plan_pago" class="form-select" >
+                    <option value="" disabled selected>Seleccione su tipo de plan:</option>
+                    <option value="seguro de Vida">Seguro de Vida</option>
+                    <option value="Seguro de Auto">Seguro de Autos</option>
+                    <option value="Seguro Empresarial">Seguro Empresarial</option>
+                  </select>
                 </div>
 
                 <div class="col-md-12">
                   <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
                 </div>
-
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Send Message</button>
+                  <button type="submit" class="btn btn-primary" style="background-color: rgb(112, 91, 54); border-color: rgb(112, 91, 54); color: white;">
+                      Enviar Mensaje
+                  </button>
                 </div>
-
               </div>
             </form>
           </div><!-- End Contact Form -->
@@ -972,16 +976,7 @@
           </ul>
         </div>
 
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Nuestros Servicios</h4>
-          <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li>
-          </ul>
-        </div>
+       
 
       </div>
     </div>

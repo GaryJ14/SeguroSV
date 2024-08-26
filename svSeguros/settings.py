@@ -134,3 +134,19 @@ STATICFILES_DIRS= (os.path.join(BASE_DIR,'svSeguros/static'),)
 #configuracion de la carpeta para subir archivos dinamicos
 MEDIA_URL='/media/'
 MEDIA_ROOT=(os.path.join(BASE_DIR,'svSeguros/media'))
+
+
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#CORREO 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'carlaalomoto27@gmail.com'
+EMAIL_HOST_PASSWORD = 'zivx thlp yyip jvqk'
+EMAIL_USE_SSL = True
+EMAIL_USE_TLS  = False
